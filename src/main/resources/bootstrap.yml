@@ -6,9 +6,9 @@ spring:
     config:
       server:
         git:
-          uri: $GIT_URI
-          username: $GIT_USER
-          password: $GIT_TOKEN
+          uri: ${GIT_URI}
+          username: ${GIT_USER}
+          password: ${GIT_TOKEN}
           default-label: main
   application:
     name: byron-config-server
