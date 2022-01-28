@@ -6,9 +6,9 @@ name: CI
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ main ]
+    branches: [ master ]
   pull_request:
-    branches: [ main ]
+    branches: [ master ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -18,7 +18,7 @@ env:
   CLUSTER_NAME: lordbyron-dev
   CLUSTER_RESOURCE_GROUP: lordbyron-dev
   NAMESPACE: default
-  APP_NAME: core-byron-cochera
+  APP_NAME: config-server
   SECRET: config-server-secret
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
