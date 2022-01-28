@@ -1,4 +1,4 @@
-FROM openjdk:11-jre-slim
+FROM openjdk:11
 EXPOSE 8888
 
 COPY ./target/*.jar app.jar
