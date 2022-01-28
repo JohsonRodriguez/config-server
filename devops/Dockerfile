@@ -5,5 +5,7 @@ RUN pwd
 
 RUN ls
 
+RUN find -iname *.jar
+
 COPY ./target/*.jar app.jar
 ENTRYPOINT ["java", "-jar", "app.jar"]
