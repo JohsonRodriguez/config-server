@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: config-sever
-          #image: nginx:1.7.9
+          image: ${{ env.REGISTRY_NAME }}.azurecr.io/${{ env.APP_NAME }}:${{ github.sha }}
           env:
             - name: GIT_URI
               valueFrom:
