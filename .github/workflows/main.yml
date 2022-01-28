@@ -19,7 +19,7 @@ env:
   CLUSTER_RESOURCE_GROUP: lordbyron-dev
   NAMESPACE: default
   APP_NAME: config-server
-  SECRET: config-server-secret
+  SECRET: config-server
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -74,7 +74,7 @@ jobs:
         with:
           manifests: |
             ${{ github.workspace }}/devops/deployment.yaml
-            ${{ github.workspace }}/devops/service.yaml
+            ${{ github.workspace }}/devops/secret.yaml
           images: |
             ${{ env.REGISTRY_NAME }}.azurecr.io/${{ env.APP_NAME }}:${{ github.sha }}
           imagepullsecrets: |
