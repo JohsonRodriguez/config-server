@@ -19,7 +19,7 @@ env:
   CLUSTER_RESOURCE_GROUP: lordbyron-dev
   NAMESPACE: default
   APP_NAME: core-byron-cochera
-  SECRET: parking-secret
+  SECRET: config-server-secret
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -48,7 +48,7 @@ jobs:
       - run: |
           docker build . -t ${{ env.REGISTRY_NAME }}.azurecr.io/${{ env.APP_NAME }}:${{ github.sha }}
           docker push ${{ env.REGISTRY_NAME }}.azurecr.io/${{ env.APP_NAME }}:${{ github.sha }}
-        working-directory: ./
+        working-directory: ./devops/
       
       # Set the target Azure Kubernetes Service (AKS) cluster. 
       - uses: azure/aks-set-context@v1
@@ -73,8 +73,8 @@ jobs:
       - uses: azure/k8s-deploy@v1
         with:
           manifests: |
-            ${{ github.workspace }}/manifests/deployment.yaml
-            ${{ github.workspace }}/manifests/service.yaml
+            ${{ github.workspace }}/devops/deployment.yaml
+            ${{ github.workspace }}/devops/service.yaml
           images: |
             ${{ env.REGISTRY_NAME }}.azurecr.io/${{ env.APP_NAME }}:${{ github.sha }}
           imagepullsecrets: |
