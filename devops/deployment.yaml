@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: config-sever
-          image: ${{ env.REGISTRY_NAME }}.azurecr.io/${{ env.APP_NAME }}:${{ github.sha }}
+          image: lordbyron.azurecr.io/config-server:v1
           env:
             - name: GIT_URI
               valueFrom:
