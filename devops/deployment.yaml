@@ -21,17 +21,17 @@ spec:
             - name: GIT_URI
               valueFrom:
                 secretKeyRef:
-                  name: config-server-secret
+                  name: git-secret
                   key: git-uri
             - name: GIT_USER
               valueFrom:
                 secretKeyRef:
-                  name: config-server-secret
+                  name: git-secret
                   key: git-user
             - name: GIT_TOKEN
               valueFrom:
                 secretKeyRef:
-                  name: config-server-secret
+                  name: git-secret
                   key: git-token
           ports:
             - containerPort: 8888
